@@ -1,6 +1,24 @@
+//DEPENDENCIES
 const express = require('express')
 const app = express()
 const PORT = 3003
+const mongoose = require('mongoose')
+
+
+// SETUP mongoose
+mongoose.connect('mongodb://localhost:27017/quotesDB',{
+    useNewUrlParser:true,
+	useUnifiedTopology: true
+})
+
+// set up listeners to monitor your DB connections
+const db = mongoose.connection
+db.once('open', ()=> console.log('DB connected...'))
+db.on('error', (error)=> console.log(error.message))
+db.on('disconnected', ()=> console.log('Mongoose disconnected...'))
+
+
+
 
 
 
