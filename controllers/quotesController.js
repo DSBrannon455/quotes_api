@@ -51,5 +51,34 @@ quotes.delete('/:id', (req, res)=>{
 })
 
 
+// UPDATE ROUTE
+quotes.put('/:id', (req, res)=>{
+
+        quotesModel.findByIdAndUpdate(req.params.id, req.body, {new:true}, (error, updatedQuote)=>{
+            if (error){
+                res.status(400).json({error: error.message})
+            }
+            else{
+                res.status(200).json({
+                    message: `Quote ${updatedQuote.id} updated successfully`,
+                    data: updatedQuote
+                })
+            }
+        })
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 module.exports = quotes
