@@ -67,6 +67,20 @@ quotes.put('/:id', (req, res)=>{
         })
 })
 
+// PATCH ROUTE increments numbers of likes
+quotes.patch('/addlikes/:id', (req, res)=>{
+	quotesModel.findByIdAndUpdate(req.params.id, { $inc: { likes : 1} }, {new:true}, (error, updatedQuote)=>{
+		if (error){
+			res.status(400).json({error: error.message})
+		}
+		else{
+			res.status(200).json({
+				data: updatedQuote
+			})
+		}
+	})
+})
+
 
 
 
