@@ -5,6 +5,14 @@ const PORT = 3003
 const mongoose = require('mongoose')
 
 
+
+// MIDDLEWARE
+// this will tell the server to parse the JSON data, and create the req.body object.
+app.use(express.json())
+
+
+
+
 // SETUP mongoose
 mongoose.connect('mongodb://localhost:27017/quotesDB',{
     useNewUrlParser:true,
