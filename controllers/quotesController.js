@@ -25,10 +25,29 @@ quotes.post('/', (req, res)=>{
             res.status(400).json({error: error.message})
         }
         else{
-            res.status(200).json(createQuote)
+            res.status(201).json(createQuote)
         }
     })
 
+})
+
+
+
+
+// DELETE ROUTE
+quotes.delete('/:id', (req, res)=>{
+
+    quotesModel.findByIdAndDelete(req.params.id, (error, deletedQuote)=>{
+        if (error){
+            res.status(400).json({error: error.message})
+        }
+        else if (deletedQuote === null){
+            res.status(404).json({message: 'Quote id not Found'})
+        }
+        else{
+            res.status(200).json({message: `Quote ${deletedQuote.quote} deleted successfully`})
+        }
+    })
 })
 
 
