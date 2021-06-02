@@ -4,6 +4,7 @@ const {Schema, model} = mongoose
 
 const quotesSchema = new Schema({
     quote: {type: String, required: true},
+    read: {type:Boolean, default: false},
     author: {type: String},
     likes: {type: Number, default:0}
 })
