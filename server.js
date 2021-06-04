@@ -12,7 +12,7 @@ const cors = require('cors')
 app.use(express.json())
 
 // Setup Cors middleware
-const whitelist = ['http://localhost:3000', process.env.BASEURL, "https://quotes-front-end.herokuapp.com/"]
+const whitelist = ['http://localhost:3000', process.env.BASEURL, "https://quotes-front-end.herokuapp.com"]
 const corsOptions = {
     origin: (origin, callback) => {
         if(whitelist.indexOf(origin) !== -1 || !origin) {
