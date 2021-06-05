@@ -6,4 +6,4 @@
 - The user can double click the quote and it grays out to show it has been read.
 - If the user double clicks on the quote again, it will become bold once again.
 
-![frame](wireframe/Screen Shot 2021-06-04 at 6.05.44 PM.png)
+![frame](wireframe/quotes.png)
